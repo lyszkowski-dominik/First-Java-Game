@@ -8,7 +8,7 @@ import java.util.Map;
 public class SpriteLibrary {
 
     private final static String PATH_TO_UNITS = "/sprites/units";
-    private Map<String,SpriteSet> units;
+    private final Map<String,SpriteSet> units;
 
     public SpriteLibrary(){
         units = new HashMap<>();
@@ -43,4 +43,9 @@ public class SpriteLibrary {
         File file = new File(resource.getFile());
         return file.list((current,name) -> new File(current,name).isDirectory());
     }
+
+    public SpriteSet getUnit(String name) {
+        return units.get(name);
+    }
+
 }
