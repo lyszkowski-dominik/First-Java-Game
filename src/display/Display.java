@@ -12,15 +12,15 @@ public class Display extends JFrame {
     private Canvas canvas;
     private Renderer renderer;
 
-    public Display(int width, int height, Input input){
-        setTitle("My First Java game.Game");
+    public Display(int width, int height, Input input) {
+        setTitle("My Awesome 2D game.Game");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
         this.renderer = new Renderer();
 
         canvas = new Canvas();
-        canvas.setPreferredSize(new Dimension(width,height));
+        canvas.setPreferredSize(new Dimension(width, height));
         canvas.setFocusable(false);
         add(canvas);
         addKeyListener(input);
@@ -36,10 +36,10 @@ public class Display extends JFrame {
         BufferStrategy bufferStrategy = canvas.getBufferStrategy();
         Graphics graphics = bufferStrategy.getDrawGraphics();
 
-        graphics.setColor(Color.GRAY);
-        graphics.fillRect(0,0,canvas.getWidth(),canvas.getHeight());
+        graphics.setColor(Color.BLACK);
+        graphics.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
-        renderer.render(game,graphics);
+        renderer.render(game, graphics);
 
         graphics.dispose();
         bufferStrategy.show();

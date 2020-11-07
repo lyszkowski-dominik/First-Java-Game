@@ -9,25 +9,33 @@ public class Movement {
 
     public Movement(double speed) {
         this.speed = speed;
-        this.vector = new Vector2D(0,0);
+        this.vector = new Vector2D(0, 0);
     }
 
-    public void update(Controller controller){
-        int deltaX = 0,deltaY =0;
+    public void update(Controller controller) {
+        int deltaX = 0;
+        int deltaY = 0;
 
-        if(controller.isRequestiongUp()){
+        if(controller.isRequestingUp()) {
             deltaY--;
-        } if(controller.isRequestiongDown()){
+        }
+
+        if(controller.isRequestingDown()) {
             deltaY++;
-        }if(controller.isRequestiongLeft()){
+        }
+
+        if(controller.isRequestingLeft()) {
             deltaX--;
-        }if(controller.isRequestiongRight()){
+        }
+
+        if(controller.isRequestingRight()) {
             deltaX++;
         }
 
-        vector = new Vector2D(deltaX,deltaY);
+        vector = new Vector2D(deltaX, deltaY);
         vector.normalize();
         vector.multiply(speed);
+        System.out.println(vector.length());
     }
 
     public Vector2D getVector() {

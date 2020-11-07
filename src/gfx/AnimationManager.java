@@ -8,11 +8,11 @@ import java.awt.image.BufferedImage;
 public class AnimationManager {
     private SpriteSet spriteSet;
     private BufferedImage currentAnimationSheet;
-    private int currentFrameTime;
     private int updatesPerFrame;
+    private int currentFrameTime;
     private int frameIndex;
 
-    public AnimationManager(SpriteSet spriteSet){
+    public AnimationManager(SpriteSet spriteSet) {
         this.spriteSet = spriteSet;
         this.updatesPerFrame = 20;
         this.frameIndex = 0;
@@ -20,7 +20,7 @@ public class AnimationManager {
         playAnimation("stand");
     }
 
-    public Image getSprite(){
+    public Image getSprite() {
         return currentAnimationSheet.getSubimage(
                 frameIndex * Game.SPRITE_SIZE,
                 0,
@@ -29,20 +29,21 @@ public class AnimationManager {
         );
     }
 
-    public void update(){
+    public void update() {
         currentFrameTime++;
 
-        if(currentFrameTime >= updatesPerFrame){
+        if(currentFrameTime >= updatesPerFrame) {
             currentFrameTime = 0;
             frameIndex++;
 
-            if(frameIndex >= currentAnimationSheet.getWidth() / Game.SPRITE_SIZE -1){
+            if(frameIndex >= currentAnimationSheet.getWidth() / Game.SPRITE_SIZE - 1) {
                 frameIndex = 0;
             }
         }
     }
 
-    public void playAnimation(String name){
+    public void playAnimation(String name) {
         this.currentAnimationSheet = (BufferedImage) spriteSet.get(name);
     }
+
 }

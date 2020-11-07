@@ -7,13 +7,14 @@ public class Input implements KeyListener {
 
     private boolean[] pressed;
 
-    public Input(){
+    public Input() {
         pressed = new boolean[255];
     }
 
-    public boolean isPressed(int keyCode){
+    public boolean isPressed(int keyCode) {
         return pressed[keyCode];
     }
+
     @Override
     public void keyTyped(KeyEvent e) {}
 

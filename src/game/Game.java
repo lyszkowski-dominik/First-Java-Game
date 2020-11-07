@@ -19,17 +19,18 @@ public class Game {
     private Input input;
     private SpriteLibrary spriteLibrary;
 
-    public Game(int width, int height){
+    public Game(int width, int height) {
         input = new Input();
-        display = new Display(width,height,input);
+        display = new Display(width, height, input);
         gameObjects = new ArrayList<>();
-        gameObjects.add(new Player(new PlayerController(input),spriteLibrary));
         spriteLibrary = new SpriteLibrary();
+        gameObjects.add(new Player(new PlayerController(input), spriteLibrary));
     }
 
-    public void update(){
+    public void update() {
         gameObjects.forEach(gameObject -> gameObject.update());
     }
+
     public void render() {
         display.render(this);
     }

@@ -7,7 +7,7 @@ import gfx.SpriteLibrary;
 
 import java.awt.*;
 
-public abstract class MovingEntity extends GameObject{
+public abstract class MovingEntity extends GameObject {
 
     private Controller controller;
     private Movement movement;
@@ -21,11 +21,12 @@ public abstract class MovingEntity extends GameObject{
     }
 
     @Override
-    public void update(){
+    public void update() {
         movement.update(controller);
         position.apply(movement);
         animationManager.update();
     }
+
     @Override
     public Image getSprite() {
         return animationManager.getSprite();
